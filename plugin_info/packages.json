@@ -1,0 +1,14 @@
+{
+  "pre-install" : {
+    "script" : "plugins/mqttNetatmo/resources/pre_install.sh"
+  },
+  "plugin" : {
+    "mqtt2" : {}
+  },
+  "apt":{
+    "nodejs" : {}
+  },
+  "post-install" : {
+    "script" : "plugins/mqttNetatmo/resources/post_install.sh"
+  }
+}

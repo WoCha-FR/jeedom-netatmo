@@ -1,0 +1,24 @@
+{
+  "id": "mqttNetatmo",
+  "name": "MQTT Netatmo",
+  "description": {
+    "fr_FR" : "Permet de récuperer par MQTT les données des produits Weather et Aircaire de Netatmo",
+    "en_US" : "Retrieves data from Netatmo's Weather and Aircaire products via MQTT",
+    "es_ES" : "Recupera datos de los productos meteorológicos y Aircaire de Netatmo a través de MQTT",
+    "de_DE" : "Ermöglicht den Abruf von Daten aus den Netatmo-Produkten Weather und Aircaire über MQTT."
+  },
+  "licence": "AGPL",
+  "author": "Wocha",
+  "require": "4.2",
+  "category": "devicecommunication",
+  "hasDependency": true,
+  "hasOwnDeamon": true,
+  "maxDependancyInstallTime": 90,
+  "changelog": "https://wocha-fr.github.io/jeedom-netatmo/#language#/changelog",
+  "documentation": "https://wocha-fr.github.io/jeedom-netatmo/#language#/",
+  "changelog_beta": "https://wocha-fr.github.io/jeedom-netatmo/#language#/changelog_beta",
+  "documentation_beta": "https://wocha-fr.github.io/jeedom-netatmo/#language#/index_beta",
+  "issue": "https://github.com/WoCha-FR/jeedom-netatmo/issues",
+  "language": ["fr_FR","en_US","es_ES","de_DE"],
+  "compatibility": ["rpi","docker","diy","mobile","v4","atlas","smart"]
+}

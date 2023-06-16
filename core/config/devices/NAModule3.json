@@ -1,0 +1,59 @@
+{
+  "name" : "Rain",
+  "configuration" : {
+    "battery_type" : "2x1.5V AAA"
+  },
+  "commands" : [
+    {
+      "name":"Pluie",
+      "logicalId" : "sumrain",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "RAIN_TOTAL",
+      "template" : {
+        "dashboard" : "core::rain",
+        "mobile" : "core::rain"
+      },
+      "unite" : "mm"
+    },
+    {
+      "name":"Pluie 24H",
+      "logicalId" : "sumrain24",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "RAIN_TOTAL",
+      "template" : {
+        "dashboard" : "core::rain",
+        "mobile" : "core::rain"
+      },
+      "unite" : "mm"
+    },
+    {
+      "name":"Pluie 1H",
+      "logicalId" : "sumrain1",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "RAIN_TOTAL",
+      "template" : {
+        "dashboard" : "core::rain",
+        "mobile" : "core::rain"
+      },
+      "unite" : "mm"
+    },
+    {
+      "name":"Statut RF",
+      "logicalId" : "rfstatus",
+      "type":"info",
+      "subType":"numeric",
+      "isHistorized" : 0,
+      "generic_type": "GENERIC_INFO",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      }
+    }
+  ]
+}

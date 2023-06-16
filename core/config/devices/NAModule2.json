@@ -1,0 +1,95 @@
+{
+  "name" : "Wind",
+  "configuration" : {
+    "battery_type" : "4x1.5V AA"
+  },
+  "commands" : [
+    {
+      "name":"Direction Vent",
+      "logicalId" : "windangle",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "WIND_DIRECTION",
+      "template" : {
+        "dashboard" : "core::compass",
+        "mobile" : "core::compass"
+      },
+      "unite" : "°"
+    },
+    {
+      "name":"Vitesse Vent",
+      "logicalId" : "windstrength",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "WIND_SPEED",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "unite" : "km/h"
+    },
+    {
+      "name":"Direction rafale",
+      "logicalId" : "gustangle",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "template" : {
+        "dashboard" : "core::compass",
+        "mobile" : "core::compass"
+      },
+      "unite" : "°"
+    },
+    {
+      "name":"Vitesse rafale",
+      "logicalId" : "guststrength",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "unite" : "km/h"
+    },
+    {
+      "name":"Vitesse Max",
+      "logicalId" : "windstrengthmax",
+      "type":"info",
+      "isHistorized" : 0,
+      "subType":"numeric",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "unite" : "km/h"
+    },
+    {
+      "name":"Direction Vent Max",
+      "logicalId" : "windanglemax",
+      "type":"info",
+      "isHistorized" : 0,
+      "subType":"numeric",
+      "generic_type": "WIND_DIRECTION",
+      "template" : {
+        "dashboard" : "core::compass",
+        "mobile" : "core::compass"
+      },
+      "unite" : "°"
+    },
+    {
+      "name":"Statut RF",
+      "logicalId" : "rfstatus",
+      "type":"info",
+      "subType":"numeric",
+      "isHistorized" : 0,
+      "generic_type": "GENERIC_INFO",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      }
+    }
+  ]
+}
