@@ -11,7 +11,7 @@ cd ${BASEDIR}
 source ../core/config/mqttNetatmo.config.ini &> /dev/null
 echo "Version requise : ${mqttNetatmoRequire}"
 
-npm i mqtt4netatmo@1.0.3 --no-save
+npm i mqtt4netatmo@${mqttNetatmoRequire} --no-save
 
 echo 90 > ${PROGRESS_FILE}
 chown www-data:www-data -R ${BASEDIR}/node_modules
