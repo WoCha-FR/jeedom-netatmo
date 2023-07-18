@@ -37,10 +37,10 @@ function mqttNetatmo_update() {
   // Mise à jour des paramètres des commandes créées
   foreach (eqLogic::byType('mqttNetatmo') as $eqLogic) {
     foreach ($eqLogic->getCmd() as $cmd) {
-      if ( $cmd->getEqLogic_id() == 'tempmin' ) {
+      if ( $cmd->getLogicalId() == 'tempmin' ) {
         $cmd->setLogicalId('mintemp');
       }
-      if ( $cmd->getEqLogic_id() == 'tempmax' ) {
+      if ( $cmd->getLogicalId() == 'tempmax' ) {
         $cmd->setLogicalId('maxtemp');
       }
       $cmd->save();
