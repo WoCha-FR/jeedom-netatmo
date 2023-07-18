@@ -28,7 +28,7 @@ if (!isConnect()) {
       <label class="col-md-4 control-label">{{Version Librairie Netatmo}}</label>
       <div class="col-md-3">
       <?php
-        $file = dirname(__FILE__) . '/../resources/node_modules/mqtt4netatmo/package.json';
+        $file = dirname(__FILE__) . '/../resources/netatmo-mqtt/package.json';
         $package = array();
         if (file_exists($file)) {
           $package = json_decode(file_get_contents($file), true);
@@ -75,21 +75,47 @@ if (!isConnect()) {
       </div>
     </div>
     <div class="form-group demon_mode local">
-      <label class="col-md-4 control-label">{{Nom d'utilisateur}}</label>
+      <label class="col-md-4 control-label">{{Stations favorites}}</label>
       <div class="col-md-3">
-        <input type="text" class="configKey form-control" data-l1key="netatmo::user" placeholder="{{Nom d'utilisateur}}"/>
+      <select class="configKey form-control" data-l1key="mqttNetatmo::favorites">
+          <option value="non">{{Non}}</option>
+          <option value="oui">{{Oui}}</option>
+        </select>
       </div>
     </div>
     <div class="form-group demon_mode local">
-      <label class="col-md-4 control-label">{{Mot de passe}}</label>
+      <label class="col-md-4 control-label">{{Authentification Netatmo}}</label>
       <div class="col-md-3">
-        <input type="password" class="configKey form-control" data-l1key="netatmo::pass" placeholder="{{Mot de passe}}"/>
+        <a class="btn btn-default" id="bt_netatmoAuthPage"><i class="fa fa-paper-plane" aria-hidden="true"></i> {{Ouvrir}}</a>
       </div>
     </div>
   </fieldset>
 </form>
 
 <script>
+  $('#bt_netatmoAuthPage').off('clic').on('click', function() {
+    PopUpCentre("http://<?php print config::byKey('internalAddr') ?>:55124", 480, 700);
+  })
+
+  function PopUpCentre(url, width, height) {
+    var leftPosition, topPosition;
+    //Allow for borders.
+    leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
+    //Allow for title and status bars.
+    topPosition = (window.screen.height / 2) - ((height / 2) + 50);
+    //Open the window.
+    nouvellefenetre = window.open(url, "Window2",
+      "status=no,height=" + height + ",width=" + width + ",resizable=yes,left=" +
+      leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" +
+      topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no");
+
+    if (nouvellefenetre) { //securité pour fermer la fenetre si le focus est perdu
+      window.onfocus = function () {
+        nouvellefenetre.window.close();
+      }
+    }
+  }
+
   $('#sel_demonMode').off('change').on('change', function() {
     $('.demon_mode').hide();
     if ($(this).value() != '') {

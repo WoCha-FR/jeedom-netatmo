@@ -4,6 +4,8 @@
 
 Ce plugin permet de récuperer les données des produits Weather et Aircaire de Netatmo via MQTT.
 
+Vous pouvez aussi récuperer les données de vos stations météo Netatmo favorites.
+
 ## Pré-Requis
 
 - Vous devez disposer d'un compte développeur Netatmo (gratuit).
@@ -42,13 +44,21 @@ Ce plugin permet de récuperer les données des produits Weather et Aircaire de 
 - **Mode** : Distant ou Local. Voir plus bas.
 - **Client ID** : Information obtenue lors de l'étape précédente sur le site de Netatmo.
 - **Client Secret** : Information obtenue lors de l'étape précédente sur le site de Netatmo.
-- **Nom d'utilisateur** : Adresse mail de votre compte Développeur Netatmo
-- **Mot de passe** : Mot de passe de votre compte Développeur Netatmo
+- **Stations favorites** : Activer la récupération des stations météo favorites.
+- **Identification Netatmo** : Lien vers l'authentification Netatmo.
 
 ## Les modes Distant & Local :
 
 - **Mode Distant** : Vous avez un autre serveur qui exécute [mqtt4netatmo](https://www.npmjs.com/package/mqtt4netatmo). Ce dernier doit être configuré pour se connecter au broker mqtt utilisé par **MQTT Manager**
 - **Mode Local** : Le démon nodeJS s'exécute sur Jeedom, vous devez donc installer les dépendances.
+
+## Configuration du compte NETATMO (Mode local seulement)
+
+- Le démon doit être démarré pour procéder à l'authentification.
+- **ATTENTION** : Vous devez être connecter à votre jeedom par son adresse IP locale
+- Cliquez sur "Ouvrir" : Vous arrivez sur la page d'autorisation de Netatmo
+- Cliquez "OUI, J'ACCEPTE" en bas de la page.
+- C'est fini !!
 
 # Equipements
 

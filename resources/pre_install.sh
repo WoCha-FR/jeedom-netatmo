@@ -12,5 +12,12 @@ if [ -d "${BASEDIR}/node_modules" ]; then
   rm -R ${BASEDIR}/node_modules
 fi
 
+if [ -d "${BASEDIR}/netatmo-mqtt" ]; then
+  if [ -f "${BASEDIR}/netatmo-mqtt/state.json" ]; then
+    echo "Backup token"
+  fi
+  rm -R ${BASEDIR}/netatmo-mqtt
+fi
+
 echo 15 > ${PROGRESS_FILE}
 echo "Pre install finished"

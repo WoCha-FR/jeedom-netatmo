@@ -11,7 +11,12 @@ cd ${BASEDIR}
 source ../core/config/mqttNetatmo.config.ini &> /dev/null
 echo "Version requise : ${mqttNetatmoRequire}"
 
-npm i mqtt4netatmo@${mqttNetatmoRequire} --no-save
+curl -L -s https://github.com/WoCha-FR/netatmo-mqtt/archive/refs/tags/${mqttNetatmoRequire}.tar.gz | tar zxf -
+mv netatmo-mqtt-${mqttNetatmoRequire} netatmo-mqtt
+
+echo 60 > ${PROGRESS_FILE}
+cd $BASEDIR/netatmo-mqtt
+npm ci
 
 echo 90 > ${PROGRESS_FILE}
-chown www-data:www-data -R ${BASEDIR}/node_modules
+chown www-data:www-data -R ${BASEDIR}/netatmo-mqtt

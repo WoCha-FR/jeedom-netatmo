@@ -47,13 +47,19 @@ class mqttNetatmo extends eqLogic {
       }
       $eqLogic->setEqType_name(__CLASS__);
       $eqLogic->setLogicalId($_key);
-      $eqLogic->setConfiguration('device', $_values['type']);
-      $eqLogic->setStatus('warning', !$_values['online']);
       // Module NAM
       if (isset($_values['home'])) {
+        // On affecte HOME
         $eqLogic->setConfiguration('station', $_values['home']);
         unset($_values['home']);
       }
+      // Favoris ou Perso
+      if ($_values['favorite'] == 1) {
+        $eqLogic->setConfiguration('device', 'fav' . $_values['type']);
+      } else {
+        $eqLogic->setConfiguration('device', $_values['type']);
+      }
+      $eqLogic->setStatus('warning', !$_values['online']);
       $eqLogic->save();
       // Traitement des données
       self::handleValues($_values);
@@ -143,9 +149,9 @@ class mqttNetatmo extends eqLogic {
     } else {
       if (config::byKey('lastDependancyInstallTime', __CLASS__) == '') {
         $return['state'] = 'nok';
-      } else if (!is_dir(realpath(dirname(__FILE__) . '/../../resources/node_modules'))) {
+      } else if (!is_dir(realpath(dirname(__FILE__) . '/../../resources/netatmo-mqtt/node_modules'))) {
         $return['state'] = 'nok';
-      } else if (!file_exists(__DIR__ . '/../../resources/node_modules/mqtt4netatmo/index.js')) {
+      } else if (!file_exists(__DIR__ . '/../../resources/netatmo-mqtt/netatmo-mqtt.js')) {
         $return['state'] = 'nok';
       } else if (config::byKey('mqttNetatmoRequire', __CLASS__) != config::byKey('mqttNetatmoVersion', __CLASS__)) {
         $return['state'] = 'nok';
@@ -194,17 +200,26 @@ class mqttNetatmo extends eqLogic {
     $mqtt_url .= ($mqttInfos['password'] === null) ? '' : $mqttInfos['user'].':'.$mqttInfos['password'].'@';
     $mqtt_url .= $mqttInfos['ip'].':'.$mqttInfos['port'];
 
-    
-    $appjs_path = realpath(dirname(__FILE__) . '/../../resources/node_modules');
-    chdir($appjs_path . '/mqtt4netatmo');
-    $cmd = ' /usr/bin/node ' . $appjs_path . '/mqtt4netatmo/index.js -z';
-    $cmd .= ' -t '.config::byKey('mqtt::topic', __CLASS__);
-    $cmd .= ' -a '.config::byKey('netatmo::user', __CLASS__);
-    $cmd .= ' -b '.config::byKey('netatmo::pass', __CLASS__);
-    $cmd .= ' -c '.config::byKey('netatmo::cid', __CLASS__);
-    $cmd .= ' -d '.config::byKey('netatmo::csecret', __CLASS__);
-    $cmd .= ' -u '.$mqtt_url;
-    $cmd .= ' -v '.log::convertLogLevel(log::getLogLevel(__CLASS__));
+    $appjs_debug = 'NETATMO_LOGLVL=' . log::convertLogLevel(log::getLogLevel(__CLASS__));
+    $appjs_path = realpath(dirname(__FILE__) . '/../../resources/netatmo-mqtt');
+    chdir($appjs_path);
+
+    $config = [
+      'mqtt_url' => $mqtt_url,
+      'mqtt_topic' => config::byKey('mqtt::topic', __CLASS__, 'netatmo'),
+      'mqtt_verifcert'=> false,
+      'clientId' => config::byKey('netatmo::cid', __CLASS__),
+      'clientSecret' => config::byKey('netatmo::csecret', __CLASS__),
+      'getFavorites' => false
+    ];
+    // Sites Favoris ?
+    if ( config::byKey('mqttNetatmo::favorites', __CLASS__, 'non') !== 'non') {
+      $config['getFavorites'] = true;
+    }
+    file_put_contents('config.json', json_encode($config));
+
+    // Lancement
+    $cmd = $appjs_debug . ' /usr/bin/node ' . $appjs_path . '/netatmo-mqtt.js';
     log::add(__CLASS__, 'info', __('Démarrage du démon mqttNetatmo', __FILE__) . ' : ' . $cmd);
     exec(system::getCmdSudo() . $cmd . ' >> ' . log::getPathToLog('mqttNetatmod') . ' 2>&1 &');
     $i = 0;
@@ -227,7 +242,7 @@ class mqttNetatmo extends eqLogic {
 
   public static function deamon_stop() {
     log::add(__CLASS__, 'info', __('Arrêt du démon mqttNetatmo', __FILE__));
-    $find = 'mqtt4netatmo/index.js';
+    $find = 'netatmo-mqtt/netatmo-mqtt.js';
     $cmd = "(ps ax || ps w) | grep -ie '" . $find . "' | grep -v grep | awk '{print $1}' | xargs " . system::getCmdSudo() . "kill -15 > /dev/null 2>&1";
     exec($cmd);
     $i = 0;
@@ -256,7 +271,7 @@ class mqttNetatmo extends eqLogic {
   }
 
   public static function isRunning() {
-    if (!empty(system::ps('mqtt4netatmo/index.js'))) {
+    if (!empty(system::ps('netatmo-mqtt/netatmo-mqtt.js'))) {
       return true;
     }
     return false;

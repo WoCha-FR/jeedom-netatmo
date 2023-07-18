@@ -128,6 +128,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                       <option value="NAModule4">{{Module intérieur}}</option>
                       <option value="NAModule3">{{Module pluie}}</option>
                       <option value="NAModule2">{{Anémomètre}}</option>
+                      <option value="favNAMain">{{Station favorite}}</option>
                     </select>
                   </div>
                 </div>

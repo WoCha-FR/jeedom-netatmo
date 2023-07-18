@@ -61,7 +61,8 @@
     "Station": "Station",
     "Supprimer": "Delete",
     "Type": "Kind",
-    "Visible": "Visible"
+    "Visible": "Visible",
+    "Station favorite" : "Favourite station"
   },
   "plugins\/mqttNetatmo\/plugin_info\/configuration.php": {
     "Client ID": "Client ID",
@@ -69,8 +70,9 @@
     "Distant": "Distant",
     "Local": "Local",
     "Mode": "Mode",
-    "Mot de passe": "Password",
-    "Nom d'utilisateur": "Username",
+    "Stations favorites": "Favourite stations",
+    "Oui": "Yes",
+    "Non": "No",
     "Version Librairie Netatmo": "Netatmo library version",
     "Veuillez relancer les dépendances pour mettre à jour la librairie. Relancez ensuite le démon pour voir la nouvelle version.": "Please restart the dependencies to update the library. Then restart the daemon to see the new version."
   }

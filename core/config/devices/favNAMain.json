@@ -1,0 +1,245 @@
+{
+  "name" : "Weather station",
+  "commands" : [
+    {
+      "name":"Température",
+      "logicalId" : "temperature",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "TEMPERATURE",
+      "unite" : "°C",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "configuration":{
+        "minValue" : -20,
+        "maxValue" : 80
+      }
+    },
+    {
+      "name":"Température min",
+      "logicalId" : "mintemp",
+      "type":"info",
+      "isHistorized" : 0,
+      "subType":"numeric",
+      "generic_type": "TEMPERATURE",
+      "unite" : "°C",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "configuration":{
+        "minValue" : -20,
+        "maxValue" : 80
+      }
+    },
+    {
+      "name":"Température max",
+      "logicalId" : "maxtemp",
+      "type":"info",
+      "isHistorized" : 0,
+      "subType":"numeric",
+      "generic_type": "TEMPERATURE",
+      "unite" : "°C",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "configuration":{
+        "minValue" : -20,
+        "maxValue" : 80
+      }
+    },
+    {
+      "name":"Tendance Température",
+      "logicalId" : "temptrend",
+      "type":"info",
+      "isHistorized" : 0,
+      "subType":"string",
+      "generic_type": "GENERIC_INFO",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      }
+    },
+    {
+      "name":"Humidité",
+      "logicalId" : "humidity",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "HUMIDITY",
+      "unite" : "%",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "configuration":{
+        "minValue" : 0,
+        "maxValue" : 100
+      }
+    },
+    {
+      "name":"Pression",
+      "logicalId" : "pressure",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "PRESSURE",
+      "unite" : "Pa",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "configuration":{
+        "minValue" : 0,
+        "maxValue" : 1500
+      }
+    },
+    {
+      "name":"Pression Absolue",
+      "logicalId" : "pressureabs",
+      "type":"info",
+      "isHistorized" : 0,
+      "subType":"numeric",
+      "generic_type": "PRESSURE",
+      "unite" : "Pa",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "configuration":{
+        "minValue" : 0,
+        "maxValue" : 1500
+      }
+    },
+    {
+      "name":"Tendance Pression",
+      "logicalId" : "pressuretrend",
+      "type":"info",
+      "isHistorized" : 0,
+      "subType":"string",
+      "generic_type": "GENERIC_INFO",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      }
+    },
+    {
+      "name":"Direction Vent",
+      "logicalId" : "windangle",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "WIND_DIRECTION",
+      "template" : {
+        "dashboard" : "core::compass",
+        "mobile" : "core::compass"
+      },
+      "unite" : "°"
+    },
+    {
+      "name":"Vitesse Vent",
+      "logicalId" : "windstrength",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "WIND_SPEED",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "unite" : "km/h"
+    },
+    {
+      "name":"Direction rafale",
+      "logicalId" : "gustangle",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "template" : {
+        "dashboard" : "core::compass",
+        "mobile" : "core::compass"
+      },
+      "unite" : "°"
+    },
+    {
+      "name":"Vitesse rafale",
+      "logicalId" : "guststrength",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "unite" : "km/h"
+    },
+    {
+      "name":"Vitesse Max",
+      "logicalId" : "windstrengthmax",
+      "type":"info",
+      "isHistorized" : 0,
+      "subType":"numeric",
+      "template" : {
+        "dashboard" : "core::line",
+        "mobile" : "core::line"
+      },
+      "unite" : "km/h"
+    },
+    {
+      "name":"Direction Vent Max",
+      "logicalId" : "windanglemax",
+      "type":"info",
+      "isHistorized" : 0,
+      "subType":"numeric",
+      "generic_type": "WIND_DIRECTION",
+      "template" : {
+        "dashboard" : "core::compass",
+        "mobile" : "core::compass"
+      },
+      "unite" : "°"
+    },
+    {
+      "name":"Pluie",
+      "logicalId" : "rain",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "RAIN_TOTAL",
+      "template" : {
+        "dashboard" : "core::rain",
+        "mobile" : "core::rain"
+      },
+      "unite" : "mm"
+    },
+    {
+      "name":"Pluie 24H",
+      "logicalId" : "sumrain24",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "RAIN_TOTAL",
+      "template" : {
+        "dashboard" : "core::rain",
+        "mobile" : "core::rain"
+      },
+      "unite" : "mm"
+    },
+    {
+      "name":"Pluie 1H",
+      "logicalId" : "sumrain1",
+      "type":"info",
+      "isHistorized" : 1,
+      "subType":"numeric",
+      "generic_type": "RAIN_TOTAL",
+      "template" : {
+        "dashboard" : "core::rain",
+        "mobile" : "core::rain"
+      },
+      "unite" : "mm"
+    }
+  ]
+}
