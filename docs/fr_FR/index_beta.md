@@ -49,7 +49,7 @@ Vous pouvez aussi récuperer les données de vos stations météo Netatmo favori
 
 ## Les modes Distant & Local :
 
-- **Mode Distant** : Vous avez un autre serveur qui exécute [mqtt4netatmo](https://www.npmjs.com/package/mqtt4netatmo). Ce dernier doit être configuré pour se connecter au broker mqtt utilisé par **MQTT Manager**
+- **Mode Distant** : Vous avez un autre serveur qui exécute [netatmo-mqtt](https://github.com/WoCha-FR/netatmo-mqtt). Ce dernier doit être configuré pour se connecter au broker mqtt utilisé par **MQTT Manager**
 - **Mode Local** : Le démon nodeJS s'exécute sur Jeedom, vous devez donc installer les dépendances.
 
 ## Configuration du compte NETATMO (Mode local seulement)

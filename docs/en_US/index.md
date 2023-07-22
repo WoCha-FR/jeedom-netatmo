@@ -4,6 +4,8 @@
 
 This plugin enables you to retrieve data from Netatmo's Weather and Aircaire products via MQTT.
 
+You can also retrieve data from your favourite Netatmo weather stations.
+
 ## Prerequisites
 
 - You must have a Netatmo developer account (free).
@@ -42,13 +44,21 @@ This plugin enables you to retrieve data from Netatmo's Weather and Aircaire pro
 - **Mode**: Remote or Local. See below.
 - **Client ID**: Information obtained from the Netatmo website in the previous step.
 - **Client Secret**: Information obtained during the previous step on the Netatmo site.
-- **Username**: Email address of your Netatmo Developer account.
-- **Password**: Password of your Netatmo Developer account.
+- **Favourite stations** : Activate the retrieval of favourite weather stations.
+- **Netatmo identification** : Link to Netatmo authentication.
 
 ## Distant & Local modes :
 
-- **Remote mode**: You have another server running [mqtt4netatmo](https://www.npmjs.com/package/mqtt4netatmo). This must be configured to connect to the mqtt broker used by **MQTT Manager**.
+- **Remote mode**: You have another server running [netatmo-mqtt](https://github.com/WoCha-FR/netatmo-mqtt). This must be configured to connect to the mqtt broker used by **MQTT Manager**.
 - **Local Mode** : The nodeJS daemon runs on Jeedom, so you need to install the dependencies.
+
+## Configuring your NETATMO account (Local mode only)
+
+- The daemon must be started to perform authentication.
+- **ATTENTION** : You must be connected to your jeedom via its local IP address
+- Click on "Open": This will take you to the Netatmo authorisation page.
+- Click "YES, I AGREE" at the bottom of the page.
+- It's all over!
 
 # Equipment
 
