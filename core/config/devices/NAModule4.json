@@ -40,7 +40,7 @@
     },
     {
       "name":"Température min",
-      "logicalId" : "tempmin",
+      "logicalId" : "mintemp",
       "type":"info",
       "isHistorized" : 0,
       "subType":"numeric",
@@ -57,7 +57,7 @@
     },
     {
       "name":"Température max",
-      "logicalId" : "tempmax",
+      "logicalId" : "maxtemp",
       "type":"info",
       "isHistorized" : 0,
       "subType":"numeric",

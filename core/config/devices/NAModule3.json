@@ -6,7 +6,7 @@
   "commands" : [
     {
       "name":"Pluie",
-      "logicalId" : "sumrain",
+      "logicalId" : "rain",
       "type":"info",
       "isHistorized" : 1,
       "subType":"numeric",

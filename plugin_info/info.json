@@ -2,10 +2,10 @@
   "id": "mqttNetatmo",
   "name": "MQTT Netatmo",
   "description": {
-    "fr_FR" : "Permet de récuperer par MQTT les données des produits Weather et Aircaire de Netatmo",
-    "en_US" : "Retrieves data from Netatmo's Weather and Aircaire products via MQTT",
-    "es_ES" : "Recupera datos de los productos meteorológicos y Aircaire de Netatmo a través de MQTT",
-    "de_DE" : "Ermöglicht den Abruf von Daten aus den Netatmo-Produkten Weather und Aircaire über MQTT."
+    "fr_FR" : "Permet de récuperer par MQTT les données des produits Weather et Aircaire de Netatmo ainsi que les stations favorites",
+    "en_US" : "Retrieves data from Netatmo's Weather and Aircaire products via MQTT as well as favourite stations",
+    "es_ES" : "Recupera datos de los productos meteorológicos y Aircaire de Netatmo a través de MQTT así como emisoras favoritas",
+    "de_DE" : "Ermöglicht den Abruf von Daten aus den Netatmo-Produkten Weather und Aircaire über MQTT sowie die Lieblingssender"
   },
   "licence": "AGPL",
   "author": "Wocha",

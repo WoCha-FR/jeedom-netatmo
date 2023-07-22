@@ -37,9 +37,18 @@ function mqttNetatmo_update() {
   // Mise à jour des paramètres des commandes créées
   foreach (eqLogic::byType('mqttNetatmo') as $eqLogic) {
     foreach ($eqLogic->getCmd() as $cmd) {
+      if ( $cmd->getLogicalId() == 'tempmin' ) {
+        $cmd->setLogicalId('mintemp');
+      }
+      if ( $cmd->getLogicalId() == 'tempmax' ) {
+        $cmd->setLogicalId('maxtemp');
+      }
       $cmd->save();
     }
   }
+  // Effacement paramètres configuration :  netatmo::pass
+  config::remove('netatmo::user', 'mqttNetatmo');
+  config::remove('netatmo::pass', 'mqttNetatmo');
 }
 
 function mqttNetatmo_remove() {

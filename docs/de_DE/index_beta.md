@@ -4,6 +4,8 @@
 
 Mit diesem Plugin können Sie über MQTT Daten von den Netatmo-Produkten Weather und Aircaire abrufen.
 
+Sie können auch die Daten Ihrer bevorzugten Netatmo-Wetterstationen abrufen.
+
 ## Voraussetzungen
 
 - Sie benötigen ein Netatmo-Entwicklerkonto (kostenlos).
@@ -42,13 +44,21 @@ Mit diesem Plugin können Sie über MQTT Daten von den Netatmo-Produkten Weather
 - **Modus**: Fern oder Lokal. Siehe weiter unten.
 - **Client ID**: Information, die im vorherigen Schritt auf der Netatmo-Website erhalten wurde.
 - **Client Secret**: Information, die im vorherigen Schritt auf der Netatmo-Website erhalten wurde.
-- **Benutzername**: Die E-Mail-Adresse Ihres Netatmo-Entwicklerkontos.
-- **Passwort**: Das Passwort Ihres Netatmo-Entwicklerkontos.
+- **Bevorzugte Stationen** : Aktivieren Sie den Abruf der bevorzugten Wetterstationen.
+- **Netatmo-Identifikation** : Link zur Netatmo-Authentifizierung.
 
 ## Die Modi Fern & Lokal :
 
-- **Remote-Modus**: Sie haben einen anderen Server, der [mqtt4netatmo](https://www.npmjs.com/package/mqtt4netatmo) ausführt. Dieser muss so konfiguriert sein, dass er eine Verbindung zum mqtt-Broker herstellt, der von **MQTT Manager** verwendet wird.
+- **Remote-Modus**: Sie haben einen anderen Server, der [netatmo-mqtt](https://github.com/WoCha-FR/netatmo-mqtt) ausführt. Dieser muss so konfiguriert sein, dass er eine Verbindung zum mqtt-Broker herstellt, der von **MQTT Manager** verwendet wird.
 - **Lokalmodus**: Der nodeJS-Daemon wird auf Jeedom ausgeführt, daher müssen Sie die Abhängigkeiten installieren.
+
+## Einrichten des NETATMO-Kontos (nur lokaler Modus)
+
+- Der Dämon muss gestartet werden, um die Authentifizierung durchzuführen.
+- **ACHTUNG** : Sie müssen über die lokale IP-Adresse mit Ihrem Jeedom verbunden sein.
+- Klicken Sie auf "Öffnen": Sie gelangen auf die Netatmo-Autorisierungsseite.
+- Klicken Sie unten auf der Seite auf "JA, ICH AKZEPTIERE".
+- Es ist vorbei!
 
 # Geräte
 
