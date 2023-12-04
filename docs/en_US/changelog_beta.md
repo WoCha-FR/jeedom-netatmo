@@ -4,6 +4,9 @@
 >
 >If there is no information about the update, this means that it only concerns the updating of documentation, translation or text.
 
+# 04/12/2023
+- Fixed the problem of not deleting the old topic when changing it.
+
 # 18/07/2023
 - New Netatmo authentication
 - Added option to retrieve favourite stations
